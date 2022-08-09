@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         Tabla Usuarios<br />
+        para modificar o eliminar seleccione el id<br />
+        <asp:DropDownList ID="DropDownList1" runat="server">
+        </asp:DropDownList>
         <br />
         <br />
         escribe un nombre
@@ -54,7 +57,7 @@
 &nbsp;
         <asp:Button ID="actualizar" runat="server" Text="actualizar" OnClick="actualizar_Click" />
 &nbsp;
-        <asp:Button ID="Button3" runat="server" Text="eliminar" />
+        <asp:Button ID="Button3" runat="server" Text="eliminar" OnClick="Button3_Click" />
 &nbsp;<asp:Button ID="Button4" runat="server" Text="Mostar Datos" />
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>

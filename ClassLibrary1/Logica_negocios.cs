@@ -21,6 +21,14 @@ namespace dll
             AC = new Acceso_Datos(connection);
             OPC = new CRUD(connection);
         }
+
+        public List<Usuarios> L_Usuarios(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaUsuarios(ref mensaje, ref mensajeC);
+        }
+
+
+      
         public string insertar_usuarios(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
             string resp = "";
@@ -35,20 +43,20 @@ namespace dll
             }
             return resp;
         }
-        public string Act_Usuarios(string[] nuevoDatos, ref string mensaje, ref string mensajeC, int ID)
+        public string Act_Usu(string[] nuevoDatos, ref string mensaje, ref string mensajeC, int ID)
         {
             string resp = "";
             if (!OPC.ActualizarUsuarios(nuevoDatos, ref mensaje, ref mensajeC, ID))
             {
                 resp = "nu";
-
             }
             else
             {
-                resp = "funciona";
+                resp = "Funciona";
             }
             return resp;
         }
+
         public string insertar_publicaciones(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
             string resp = "";

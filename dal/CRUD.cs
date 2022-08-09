@@ -18,6 +18,35 @@ namespace dal
             AC = new Acceso_Datos(connection);
         }
 
+        public List<Usuarios> ListaUsuarios(ref string mensaje, ref string mensajeC)//Metodo de la Lista Actualización
+        {
+            string comandoSql = "select * from usuarios;", etiqueta = "Biblioteca3";//Variables y Utilidades
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+            List<Usuarios> actualizacion = new List<Usuarios>();//Creacion de una lista del tipo Actualizacion para trabajar
+
+            dataSet = AC.LecturaSet(comandoSql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);//Se llena el DataSet con los datos de la BD
+            if (dataSet != null)//Si e DataSet tiene datos entonces
+            {
+                dataTable = dataSet.Tables[0];//Se crea un DataTable y se llena con la informacion del DataSet
+                actualizacion = dataTable.AsEnumerable().Select(row => new Usuarios//El datatable es como un numerable y se hace una seleccion, cada row será igual a un nuevo objeto de a clase seleccionada
+                {//Por cada iterancia vamos a pasar los parámetros de mi objeto
+                    IdAusuario = row.Field<int>("id_usuarios"),
+                    Nombre = row.Field<string>("nombre"),
+                     Colonia= row.Field<string>("colonia"),
+                    Numero = row.Field<int>("numero"),
+                    Cp = row.Field<int>("cp"),
+                    Nombre_centrotrabajo = row.Field<string>("nom_centroTrabajo"),
+                    Telefono = row.Field<string>("telefono"),
+                }).ToList();//Se añade la información a la Lista
+            }
+            return actualizacion;//Se retorna la Lista 
+        }
+
+
+        
+
         public bool InsertarUsuarios(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
             bool respuesta = false;

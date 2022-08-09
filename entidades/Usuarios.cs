@@ -9,11 +9,11 @@ namespace entidades
     public class Usuarios
     {
         public int IdAusuario { get; set; }
-        public string nombre { get; set; }
-        public string colonia { get; set; }
-        public int numero { get; set; }
-        public int cp { get; set; }
-        public string nombre_centrotrabajo { get; set; }
-        public string telefono { get; set; }
+        public string Nombre { get; set; }
+        public string Colonia { get; set; }
+        public int Numero { get; set; }
+        public int Cp { get; set; }
+        public string Nombre_centrotrabajo { get; set; }
+        public string Telefono { get; set; }
     }
 }
