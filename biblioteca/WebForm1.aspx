@@ -58,7 +58,7 @@
         <asp:Button ID="actualizar" runat="server" Text="actualizar" OnClick="actualizar_Click" />
 &nbsp;
         <asp:Button ID="Button3" runat="server" Text="eliminar" OnClick="Button3_Click" />
-&nbsp;<asp:Button ID="Button4" runat="server" Text="Mostar Datos" />
+&nbsp;<asp:Button ID="Button4" runat="server" Text="Mostar Datos" OnClick="Button4_Click" />
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
         <br />
@@ -67,6 +67,12 @@
         <br />
         <br />
         Tabla Publicaciones<br />
+        <br />
+        para editar o borrar selecciona el id
+        <br />
+        <asp:DropDownList ID="DropDownList2" runat="server">
+        </asp:DropDownList>
+        <br />
         <br />
         Escribe el nombre del titulo<br />
         <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
@@ -80,18 +86,27 @@
         <br />
         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <br />
-        <asp:Button ID="Button5" runat="server" Text="agregar" />
+        <asp:Button ID="Button5" runat="server" Text="agregar" OnClick="Button5_Click" />
 &nbsp;
-        <asp:Button ID="Button6" runat="server" Text="actualizar" />
+        <asp:Button ID="Button6" runat="server" Text="actualizar" OnClick="Button6_Click" />
 &nbsp;
-        <asp:Button ID="Button7" runat="server" Text="eliminar" />
+        <asp:Button ID="Button7" runat="server" Text="eliminar" OnClick="Button7_Click" />
 &nbsp;
-        <asp:Button ID="Button8" runat="server" Text="mostrar Datos" />
+        <asp:Button ID="Button8" runat="server" Text="mostrar Datos" OnClick="Button8_Click" />
         <br />
         <asp:GridView ID="GridView2" runat="server">
         </asp:GridView>
         <br />
         <br />
+        <br />
+        Consulta
+        <br />
+        <br />
+        <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="true"  OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged">
+        </asp:DropDownList>
+        <br />
+        <br />
+        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
         <br />
         <br />
         <br />

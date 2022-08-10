@@ -22,13 +22,23 @@ namespace dll
             OPC = new CRUD(connection);
         }
 
+        public List<Consulta> L_Consulta(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaConsulta(ref mensaje, ref mensajeC);
+        }
+        
         public List<Usuarios> L_Usuarios(ref string mensaje, ref string mensajeC)
         {
             return OPC.ListaUsuarios(ref mensaje, ref mensajeC);
         }
 
+        public List<publicaciones> L_publicaciones(ref string mensaje, ref string mensajeC)
+        {
+            return OPC.ListaPublicaciones(ref mensaje, ref mensajeC);
+        }
 
-      
+
+
         public string insertar_usuarios(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
             string resp = "";
@@ -57,7 +67,7 @@ namespace dll
             return resp;
         }
 
-        public string insertar_publicaciones(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
+        public string Insertar_publicaciones(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
         {
             string resp = "";
             if (!OPC.InsertarPublicaciones(nuevoDatos, ref mensaje, ref mensajeC))
@@ -115,5 +125,36 @@ namespace dll
             }
             return resp;
         }
+
+        public DataTable tablaUsuarios(ref string mensaje, ref string mensajeC)
+        {
+            string comandoMySql = "select * from usuarios;", etiqueta = "Biblioteca3";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+            }
+            return dataTable;
+        }
+
+        public DataTable tablaPublicaciones(ref string mensaje, ref string mensajeC)
+        {
+            string comandoMySql = "select * from publicaciones;", etiqueta = "Biblioteca3";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+            }
+            return dataTable;
+        }
+
     }
 }

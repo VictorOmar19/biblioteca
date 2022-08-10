@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace entidades
 {
-    class publicaciones
+    public class publicaciones
     {
         public int Idpublicacion { get; set; }
         public string titulo { get; set; }

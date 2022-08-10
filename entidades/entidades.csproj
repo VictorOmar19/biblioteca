@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consulta.cs" />
+    <Compile Include="Monografias.cs" />
+    <Compile Include="Prestamo.cs" />
     <Compile Include="publicaciones.cs" />
+    <Compile Include="Revistas.cs" />
+    <Compile Include="Textos.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
